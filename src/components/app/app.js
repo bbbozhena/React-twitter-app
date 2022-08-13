@@ -48,11 +48,10 @@ export default class App extends Component {
     this.setState(({ data }) => {
       const index = data.findIndex((elem) => elem.id === id);
 
-
-      const newArr = [...data.slice(0, index), ...data.slice(index +1)];
+      const newArr = [...data.slice(0, index), ...data.slice(index + 1)];
 
       return {
-        data: newArr
+        data: newArr,
       };
     });
   }
@@ -78,10 +77,14 @@ export default class App extends Component {
       const old = data[index];
       const newItem = { ...old, important: !old.important };
 
-      const newArr = [...data.slice(0,index), newItem, ...data.slice(index +1)];
+      const newArr = [
+        ...data.slice(0, index),
+        newItem,
+        ...data.slice(index + 1),
+      ];
 
       return {
-        data: newArr
+        data: newArr,
       };
     });
   }
@@ -93,10 +96,14 @@ export default class App extends Component {
       const old = data[index];
       const newItem = { ...old, like: !old.like };
 
-      const newArr = [...data.slice(0,index), newItem, ...data.slice(index +1)];
+      const newArr = [
+        ...data.slice(0, index),
+        newItem,
+        ...data.slice(index + 1),
+      ];
 
       return {
-        data: newArr
+        data: newArr,
       };
     });
   }
